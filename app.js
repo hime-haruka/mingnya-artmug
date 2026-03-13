@@ -120,7 +120,7 @@
     document.body.classList.add("modal-open");
 
     setTimeout(() => {
-      modalTextarea.focus();
+    modalTextarea.focus({ preventScroll: true });
     }, 10);
   }
 
