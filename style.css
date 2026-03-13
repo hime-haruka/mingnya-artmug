@@ -457,3 +457,39 @@ body.modal-open {
   max-height: calc(100vh - 260px);
   overflow-y: auto;
 }
+
+.design-item-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.design-check {
+  min-width: 0;
+}
+
+.design-edit-btn {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #efbfd0;
+  border-radius: 999px;
+  background: #fff;
+  color: #b35a7d;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.design-edit-btn:hover {
+  border-color: #de7fa5;
+  background: #fff1f6;
+}
+
+.design-edit-btn[hidden] {
+  display: none !important;
+}

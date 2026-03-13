@@ -16,16 +16,18 @@
   const saveDetailBtn = document.getElementById("saveDetailBtn");
   const backdrop = modal.querySelector("[data-close-modal]");
   const designToggles = document.querySelectorAll(".design-toggle");
+  const editButtons = document.querySelectorAll(".design-edit-btn");
+
 
   const designConfig = {
     package: {
       label: "패키지",
-      guide: "RT포스터 오픈 숫자 및 방식, PPT 내용 작성, 희망 스케줄표 모양, 각 디자인에 들어갈 문구를 작성해주세요.",
+      guide: "RT포스터 오픈 숫자 및 방식, PPT 내용 작성, 배너 종류 및 각 디자인에 들어갈 문구를 작성해주세요.",
       placeholder: "예) RT 300 달성 시 오픈 / PPT 5장 / 둥근 칸형 스케줄표 / 메인 문구 포함"
     },
     ppt: {
       label: "PPT",
-      guide: "PPT 장수마다 들어갈 내용을 작성해주세요.",
+      guide: "PPT 장수마다 들어갈 내용 혹은 적어져 있는 링크(구글, 캔바 등)를 적어주세요.",
       placeholder: "예) 1장 자기소개 / 2장 방송 규칙 / 3장 콘텐츠 소개"
     },
     chzzk: {
@@ -35,8 +37,8 @@
     },
     soop: {
       label: "SOOP",
-      guide: "배너, 시그풍에 들어갈 문구 및 갯수를 작성해주세요.",
-      placeholder: "예) 배너 2종 / 시그풍 1종 / 메인 문구 포함"
+      guide: "배너에 들어갈 문구를 작성해주세요.",
+      placeholder: "예) 배너 2종 / 메인 문구 포함"
     },
     youtube: {
       label: "유튜브",
@@ -81,7 +83,7 @@
     etc: {
       label: "그 외 디자인",
       guide: "선택 항목에 없는 디자인이나 포트폴리오에 없는 디자인 요청 내용을 자유롭게 작성해주세요.",
-      placeholder: "예) 멤버십 배너 / 이벤트용 특전 이미지 / 방송용 공지 카드"
+      placeholder: " 예) 로드맵, 서버 API, 인생네컷 등"
     }
   };
 
@@ -95,76 +97,99 @@
     messageEl.style.color = isError ? "#d14d72" : "#b14c73";
   }
 
-  function updateCardState(key) {
-    const item = document.querySelector(`.design-item[data-key="${key}"]`);
-    const toggle = document.querySelector(`.design-toggle[data-key="${key}"]`);
-    if (!item || !toggle) return;
+function updateCardState(key) {
+  const item = document.querySelector(`.design-item[data-key="${key}"]`);
+  const toggle = document.querySelector(`.design-toggle[data-key="${key}"]`);
+  const editBtn = document.querySelector(`.design-edit-btn[data-key="${key}"]`);
 
-    item.classList.toggle("active", toggle.checked);
+  if (!item || !toggle) return;
+
+  const hasSavedValue = Boolean((detailStore[key] || "").trim());
+
+  item.classList.toggle("active", toggle.checked);
+
+  if (editBtn) {
+    editBtn.hidden = !hasSavedValue;
   }
+}
 
-  function openModal(key, toggleEl) {
-    const config = designConfig[key];
-    if (!config) return;
+function openModal(key, toggleEl) {
+  const config = designConfig[key];
+  if (!config) return;
 
-    currentKey = key;
-    currentToggle = toggleEl || null;
+  currentKey = key;
+  currentToggle = toggleEl || null;
 
-    modalTitle.textContent = `${config.label} 상세 작성`;
-    modalGuide.textContent = config.guide;
-    modalTextarea.placeholder = config.placeholder;
-    modalTextarea.value = detailStore[key] || "";
+  modalTitle.textContent = `${config.label} 상세 작성`;
+  modalGuide.textContent = config.guide;
+  modalTextarea.placeholder = config.placeholder;
+  modalTextarea.value = detailStore[key] || "";
 
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
 
-    setTimeout(() => {
+  requestAnimationFrame(() => {
     modalTextarea.focus({ preventScroll: true });
-    }, 10);
-  }
-
-  function closeModal({ revertIfEmpty = false } = {}) {
-    if (revertIfEmpty && currentKey && currentToggle) {
-      const hasValue = (modalTextarea.value || "").trim();
-      const savedValue = (detailStore[currentKey] || "").trim();
-
-      if (!hasValue && !savedValue) {
-        currentToggle.checked = false;
-        updateCardState(currentKey);
-      }
-    }
-
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-
-    currentKey = null;
-    currentToggle = null;
-  }
-
-  function saveModalDetail() {
-    if (!currentKey) return;
-
-    detailStore[currentKey] = modalTextarea.value.trim();
-    closeModal();
-    setMessage("상세 내용이 저장되었어요.");
-  }
-
-  designToggles.forEach((toggle) => {
-    const key = toggle.dataset.key;
-    updateCardState(key);
-
-    toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        updateCardState(key);
-        openModal(key, toggle);
-      } else {
-        detailStore[key] = "";
-        updateCardState(key);
-      }
-    });
   });
+}
+
+function closeModal({ revertIfEmpty = false } = {}) {
+  if (revertIfEmpty && currentKey && currentToggle) {
+    const draftValue = (modalTextarea.value || "").trim();
+    const savedValue = (detailStore[currentKey] || "").trim();
+
+    if (!draftValue && !savedValue && currentToggle.checked) {
+      currentToggle.checked = false;
+      updateCardState(currentKey);
+    }
+  }
+
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  currentKey = null;
+  currentToggle = null;
+}
+
+function saveModalDetail() {
+  if (!currentKey) return;
+
+  detailStore[currentKey] = modalTextarea.value.trim();
+  updateCardState(currentKey);
+  closeModal();
+  setMessage("상세 내용이 저장되었어요.");
+}
+
+designToggles.forEach((toggle) => {
+  const key = toggle.dataset.key;
+  updateCardState(key);
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      updateCardState(key);
+
+      requestAnimationFrame(() => {
+        openModal(key, toggle);
+      });
+    } else {
+      updateCardState(key);
+    }
+  });
+});
+
+editButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const key = button.dataset.key;
+    const toggle = document.querySelector(`.design-toggle[data-key="${key}"]`);
+
+    openModal(key, toggle);
+  });
+});
 
   closeModalBtn.addEventListener("click", () => closeModal({ revertIfEmpty: true }));
   cancelModalBtn.addEventListener("click", () => closeModal({ revertIfEmpty: true }));
