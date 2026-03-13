@@ -9,251 +9,226 @@
 </head>
 <body>
 
-    <section class="request-form-section">
-        <div class="request-form-wrap">
-            <div class="request-form-head">
-            <p class="request-form-badge">Request Form</p>
-            <h2>신청 양식</h2>
-            <p class="request-form-desc">
-                아래 항목을 선택하고 내용을 작성한 뒤 양식을 복사해서 전달해주세요.
-            </p>
-            </div>
-
-            <div class="request-notice-box">
-            <strong>⚠️ 기본 작업일은 4~7일 , 주말과 공휴일은 휴무입니다</strong>
-            </div>
-
-            <form id="portfolioRequestForm" class="request-form" onsubmit="return false;">
-            <div class="form-block">
-                <label class="form-label" for="broadcastInfo">방송 닉네임 및 주소</label>
-                <textarea
-                id="broadcastInfo"
-                class="form-control form-textarea"
-                rows="3"
-                placeholder="방송 닉네임과 주소를 작성해주세요"
-                ></textarea>
-            </div>
-
-            <div class="form-block">
-                <label class="form-label" for="desiredDate">수령 희망 날짜</label>
-                <textarea
-                id="desiredDate"
-                class="form-control form-textarea form-textarea-sm"
-                rows="2"
-                placeholder="수령을 희망하는 날짜를 작성해주세요"
-                ></textarea>
-            </div>
-
-            <div class="form-block">
-                <div class="form-label">신청하실 디자인 항목</div>
-                <p class="form-help">
-                필요한 항목을 체크하면 상세 입력창이 자동으로 열립니다.
+    <main>
+        <section class="request-form-section">
+            <div class="request-form-wrap">
+                <div class="request-form-head">
+                <p class="request-form-badge">Request Form</p>
+                <h2>신청 양식</h2>
+                <p class="request-form-desc">
+                    아래 항목을 선택하고 내용을 작성한 뒤 양식을 복사해서 전달해주세요.
                 </p>
-
-                <div class="design-grid" id="designGrid">
-                <div class="design-item" data-key="package">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="package" />
-                    <span class="design-check-icon">📦</span>
-                    <span class="design-check-text">패키지</span>
+                </div>
+                <div class="request-notice-box">
+                <strong>⚠️ 기본 작업일은 4~7일 , 주말과 공휴일은 휴무입니다</strong>
+                </div>
+                <form id="portfolioRequestForm" class="request-form" onsubmit="return false;">
+                <div class="form-block">
+                    <label class="form-label" for="broadcastInfo">방송 닉네임 및 주소</label>
+                    <textarea
+                    id="broadcastInfo"
+                    class="form-control form-textarea"
+                    rows="3"
+                    placeholder="방송 닉네임과 주소를 작성해주세요"
+                    ></textarea>
+                </div>
+                <div class="form-block">
+                    <label class="form-label" for="desiredDate">수령 희망 날짜</label>
+                    <textarea
+                    id="desiredDate"
+                    class="form-control form-textarea form-textarea-sm"
+                    rows="2"
+                    placeholder="수령을 희망하는 날짜를 작성해주세요"
+                    ></textarea>
+                </div>
+                <div class="form-block">
+                    <div class="form-label">신청하실 디자인 항목</div>
+                    <p class="form-help">
+                    필요한 항목을 체크하면 상세 입력창이 자동으로 열립니다.
+                    </p>
+                    <div class="design-grid" id="designGrid">
+                    <div class="design-item" data-key="package">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="package" />
+                        <span class="design-check-icon">📦</span>
+                        <span class="design-check-text">패키지</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="ppt">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="ppt" />
+                        <span class="design-check-icon">🖥️</span>
+                        <span class="design-check-text">PPT</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="chzzk">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="chzzk" />
+                        <span class="design-check-icon">📺</span>
+                        <span class="design-check-text">치지직</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="soop">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="soop" />
+                        <span class="design-check-icon">🎀</span>
+                        <span class="design-check-text">SOOP</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="youtube">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="youtube" />
+                        <span class="design-check-icon">▶️</span>
+                        <span class="design-check-text">유튜브</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="thumbnail">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="thumbnail" />
+                        <span class="design-check-icon">🖼️</span>
+                        <span class="design-check-text">썸네일</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="poster">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="poster" />
+                        <span class="design-check-icon">📌</span>
+                        <span class="design-check-text">포스터</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="schedule">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="schedule" />
+                        <span class="design-check-icon">📅</span>
+                        <span class="design-check-text">스케줄표</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="logo">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="logo" />
+                        <span class="design-check-icon">✒️</span>
+                        <span class="design-check-text">로고</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="boardgame">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="boardgame" />
+                        <span class="design-check-icon">🎲</span>
+                        <span class="design-check-text">주루마블</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="waiting">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="waiting" />
+                        <span class="design-check-icon">🌙</span>
+                        <span class="design-check-text">대기화면</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="vod">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="vod" />
+                        <span class="design-check-icon">📁</span>
+                        <span class="design-check-text">다시보기</span>
+                        </label>
+                    </div>
+                    <div class="design-item" data-key="etc">
+                        <label class="design-check">
+                        <input type="checkbox" class="design-toggle" data-key="etc" />
+                        <span class="design-check-icon">✨</span>
+                        <span class="design-check-text">그 외 디자인</span>
+                        </label>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-row form-row--options">
+                <div class="form-block">
+                    <label class="form-label">추가 옵션</label>
+                    <div class="chip-check-group">
+                    <label class="chip-check">
+                        <input type="checkbox" name="extraOption" value="PSD 파일 구매" />
+                        <span>PSD 파일 구매</span>
+                    </label>
+                    <label class="chip-check">
+                        <input type="checkbox" name="extraOption" value="포트폴리오 비공개" />
+                        <span>포트폴리오 비공개</span>
+                    </label>
+                    <label class="chip-check">
+                        <input type="checkbox" name="extraOption" value="상업용 전환" />
+                        <span>상업용 전환</span>
+                    </label>
+                    </div>
+                </div>
+                <div class="form-block">
+                    <label class="form-label">빠른 마감 옵션</label>
+                    <div class="chip-check-group">
+                    <label class="chip-check radio">
+                        <input type="radio" name="rushOption" value="3일이내" />
+                        <span>3일 이내</span>
+                    </label>
+                    <label class="chip-check radio">
+                        <input type="radio" name="rushOption" value="2일이내" />
+                        <span>2일 이내</span>
+                    </label>
+                    <label class="chip-check radio">
+                        <input type="radio" name="rushOption" value="1일이내" />
+                        <span>1일 이내</span>
+                    </label>
+                    <label class="chip-check radio">
+                        <input type="radio" name="rushOption" value="" checked />
+                        <span>선택 안 함</span>
+                    </label>
+                    </div>
+                </div>
+                </div>
+                <div class="form-block">
+                    <label class="form-label" for="referenceNote">참고자료 및 요청사항</label>
+                    <textarea
+                    id="referenceNote"
+                    class="form-control form-textarea"
+                    rows="6"
+                    placeholder="원하는 색감, 요소 참고자료 및 레퍼런스 사진 첨부 등 상세한 내용을 적어주세요. 오마카세 및 부실한 설명으로 시작된 작업은 추후 수정이 어렵습니다."
+                    ></textarea>
+                </div>
+                <div class="notice-check-wrap">
+                    <label class="notice-check">
+                    <input type="checkbox" id="noticeConfirm" />
+                    <span>공지사항을 다 읽으셨나요?</span>
                     </label>
                 </div>
-
-                <div class="design-item" data-key="ppt">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="ppt" />
-                    <span class="design-check-icon">🖥️</span>
-                    <span class="design-check-text">PPT</span>
-                    </label>
+                <div class="form-actions">
+                    <button type="button" id="copyFormBtn" class="action-btn primary">양식 복사</button>
+                    <button type="button" id="resetFormBtn" class="action-btn secondary">초기화</button>
                 </div>
-
-                <div class="design-item" data-key="chzzk">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="chzzk" />
-                    <span class="design-check-icon">📺</span>
-                    <span class="design-check-text">치지직</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="soop">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="soop" />
-                    <span class="design-check-icon">🎀</span>
-                    <span class="design-check-text">SOOP</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="youtube">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="youtube" />
-                    <span class="design-check-icon">▶️</span>
-                    <span class="design-check-text">유튜브</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="thumbnail">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="thumbnail" />
-                    <span class="design-check-icon">🖼️</span>
-                    <span class="design-check-text">썸네일</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="poster">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="poster" />
-                    <span class="design-check-icon">📌</span>
-                    <span class="design-check-text">포스터</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="schedule">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="schedule" />
-                    <span class="design-check-icon">📅</span>
-                    <span class="design-check-text">스케줄표</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="logo">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="logo" />
-                    <span class="design-check-icon">✒️</span>
-                    <span class="design-check-text">로고</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="boardgame">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="boardgame" />
-                    <span class="design-check-icon">🎲</span>
-                    <span class="design-check-text">주루마블</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="waiting">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="waiting" />
-                    <span class="design-check-icon">🌙</span>
-                    <span class="design-check-text">대기화면</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="vod">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="vod" />
-                    <span class="design-check-icon">📁</span>
-                    <span class="design-check-text">다시보기</span>
-                    </label>
-                </div>
-
-                <div class="design-item" data-key="etc">
-                    <label class="design-check">
-                    <input type="checkbox" class="design-toggle" data-key="etc" />
-                    <span class="design-check-icon">✨</span>
-                    <span class="design-check-text">그 외 디자인</span>
-                    </label>
-                </div>
-                </div>
+                <p id="formMessage" class="form-message" aria-live="polite"></p>
+                </form>
             </div>
-
-            <div class="form-row form-row--options">
-            <div class="form-block">
-                <label class="form-label">추가 옵션</label>
-                <div class="chip-check-group">
-                <label class="chip-check">
-                    <input type="checkbox" name="extraOption" value="PSD 파일 구매" />
-                    <span>PSD 파일 구매</span>
-                </label>
-                <label class="chip-check">
-                    <input type="checkbox" name="extraOption" value="포트폴리오 비공개" />
-                    <span>포트폴리오 비공개</span>
-                </label>
-                <label class="chip-check">
-                    <input type="checkbox" name="extraOption" value="상업용 전환" />
-                    <span>상업용 전환</span>
-                </label>
-                </div>
+        </section>
+        <div class="detail-modal" id="detailModal" aria-hidden="true">
+        <div class="detail-modal__backdrop" data-close-modal></div>
+        <div class="detail-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+            <div class="detail-modal__head">
+            <div>
+                <p class="detail-modal__eyebrow">Detail Editor</p>
+                <h3 id="detailModalTitle">상세 작성</h3>
             </div>
-
-            <div class="form-block">
-                <label class="form-label">빠른 마감 옵션</label>
-                <div class="chip-check-group">
-                <label class="chip-check radio">
-                    <input type="radio" name="rushOption" value="3일이내" />
-                    <span>3일 이내</span>
-                </label>
-                <label class="chip-check radio">
-                    <input type="radio" name="rushOption" value="2일이내" />
-                    <span>2일 이내</span>
-                </label>
-                <label class="chip-check radio">
-                    <input type="radio" name="rushOption" value="1일이내" />
-                    <span>1일 이내</span>
-                </label>
-                <label class="chip-check radio">
-                    <input type="radio" name="rushOption" value="" checked />
-                    <span>선택 안 함</span>
-                </label>
-                </div>
+            <button type="button" class="detail-modal__close" id="closeModalBtn" aria-label="닫기">×</button>
             </div>
+            <div class="detail-modal__body">
+            <p class="detail-modal__guide" id="detailModalGuide"></p>
+            <textarea
+                id="detailModalTextarea"
+                class="form-control detail-modal__textarea"
+                rows="8"
+                placeholder=""
+            ></textarea>
             </div>
-
-            <div class="form-block">
-                <label class="form-label" for="referenceNote">참고자료 및 요청사항</label>
-                <textarea
-                id="referenceNote"
-                class="form-control form-textarea"
-                rows="6"
-                placeholder="원하는 색감, 요소 참고자료 및 레퍼런스 사진 첨부 등 상세한 내용을 적어주세요. 오마카세 및 부실한 설명으로 시작된 작업은 추후 수정이 어렵습니다."
-                ></textarea>
+            <div class="detail-modal__foot">
+            <button type="button" class="action-btn secondary" id="cancelModalBtn">취소</button>
+            <button type="button" class="action-btn primary" id="saveDetailBtn">저장</button>
             </div>
-
-            <div class="notice-check-wrap">
-                <label class="notice-check">
-                <input type="checkbox" id="noticeConfirm" />
-                <span>공지사항을 다 읽으셨나요?</span>
-                </label>
-            </div>
-
-            <div class="form-actions">
-                <button type="button" id="copyFormBtn" class="action-btn primary">양식 복사</button>
-                <button type="button" id="resetFormBtn" class="action-btn secondary">초기화</button>
-            </div>
-
-            <p id="formMessage" class="form-message" aria-live="polite"></p>
-            </form>
         </div>
-    </section>
-
-    <div class="detail-modal" id="detailModal" aria-hidden="true">
-    <div class="detail-modal__backdrop" data-close-modal></div>
-
-    <div class="detail-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
-        <div class="detail-modal__head">
-        <div>
-            <p class="detail-modal__eyebrow">Detail Editor</p>
-            <h3 id="detailModalTitle">상세 작성</h3>
         </div>
-        <button type="button" class="detail-modal__close" id="closeModalBtn" aria-label="닫기">×</button>
-        </div>
-
-        <div class="detail-modal__body">
-        <p class="detail-modal__guide" id="detailModalGuide"></p>
-        <textarea
-            id="detailModalTextarea"
-            class="form-control detail-modal__textarea"
-            rows="8"
-            placeholder=""
-        ></textarea>
-        </div>
-
-        <div class="detail-modal__foot">
-        <button type="button" class="action-btn secondary" id="cancelModalBtn">취소</button>
-        <button type="button" class="action-btn primary" id="saveDetailBtn">저장</button>
-        </div>
-    </div>
-    </div>
+    </main>
 
 <script src="./app.js"></script>
 </body>
