@@ -33,7 +33,7 @@
     chzzk: {
       label: "치지직",
       guide: "배너 종류 및 갯수를 작성해주세요.",
-      placeholder: "예) 상단 배너 2종 / 카테고리 배너 1종"
+      placeholder: "예) 유튜브, 트위터, 팬심, 노래책 / 총 4종"
     },
     soop: {
       label: "SOOP",
@@ -53,7 +53,7 @@
     poster: {
       label: "포스터",
       guide: "포스터에 들어갈 문구, RT 포스터일 경우 오픈 숫자 및 희망 오픈 방식을 작성해주세요.",
-      placeholder: "예) RT 500 달성 시 공개 / 세로형 / 메인 타이틀 포함"
+      placeholder: "예) (RT 포스터) 00RT, 00RT 부분공개 or 그라데이션 공개 / (일반 포스터) 메인 타이틀 및 문구 등 / 세로형, 가로형 등"
     },
     schedule: {
       label: "스케줄표",
